@@ -28,6 +28,8 @@
     update.href = `https://wa.me/${customerNumber(phone)}?text=${encodeURIComponent(text)}`;
     message.textContent = `Order ${orderId} is ready to be confirmed with ${name} on WhatsApp.`;
     document.querySelector('#checkoutDialog').close();
+    cart = [];
+    renderCart();
     confirmation.showModal();
   }, true);
 
