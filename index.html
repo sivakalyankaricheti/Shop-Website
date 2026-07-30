@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Woodland Pantry local delivery in London" />
+    <title>Woodland Pantry | Local delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="checkout-updates.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top"><span class="brand-mark">W</span> woodland<span>pantry</span></a>
+      <nav aria-label="Main navigation"><a href="#shop">Shop</a><a href="#how">How it works</a><a href="#delivery">Delivery area</a></nav>
+      <button class="bag-button" id="openCart" aria-label="Open shopping bag">Bag <span id="cartCount">0</span></button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">LOCAL GROCERIES, DELIVERED</p>
+          <h1>Your neighbourhood shop, <em>at your door.</em></h1>
+          <p class="hero-text">Thoughtful everyday essentials and little treats, delivered across Woodland and nearby London postcodes.</p>
+          <div class="hero-actions"><a class="button primary" href="#shop">Shop essentials</a><a class="text-link" href="#delivery">Check your postcode <span>→</span></a></div>
+          <div class="delivery-note"><span class="dot"></span> Same-day slots available until 5pm</div>
+        </div>
+        <div class="hero-art" aria-label="A market bag filled with fresh groceries">
+          <div class="sun"></div><div class="leaf leaf-a">✦</div><div class="leaf leaf-b">✦</div>
+          <div class="bag"><div class="bag-handle"></div><div class="bag-label">WOODLAND<br><small>LOCAL GOODS</small></div></div>
+          <div class="produce pear">●</div><div class="produce orange">●</div><div class="produce bread">▰</div><div class="produce herb">♣</div>
+        </div>
+      </section>
+
+      <section class="benefits" aria-label="Service benefits">
+        <div><span>01</span><p><strong>Local, dependable delivery</strong>From our shelves to your doorstep.</p></div>
+        <div><span>02</span><p><strong>Pay your way</strong>Card, Apple Pay, Google Pay or cash on delivery.</p></div>
+        <div><span>03</span><p><strong>Simple daily ordering</strong>Fresh stock, clear totals, no surprises.</p></div>
+      </section>
+
+      <section class="shop-section" id="shop">
+        <div class="section-heading"><div><p class="eyebrow">SHOP THE SHELVES</p><h2>Everyday favourites</h2></div><p>Everything you need for today,<br>without leaving home.</p></div>
+        <div class="product-grid" id="products"></div>
+      </section>
+
+      <section class="how-section" id="how">
+        <div><p class="eyebrow">A BETTER LOCAL ERRAND</p><h2>Small shop.<br><em>Big convenience.</em></h2></div>
+        <ol>
+          <li><span>1</span><div><strong>Fill your bag</strong><p>Choose from your familiar everyday staples.</p></div></li>
+          <li><span>2</span><div><strong>Choose a delivery time</strong><p>Pick a same-day or next-day slot that suits you.</p></div></li>
+          <li><span>3</span><div><strong>Pay with confidence</strong><p>Use a secure wallet, card, or pay cash at your door.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="postcode-section" id="delivery">
+        <div><p class="eyebrow">DELIVERY AREA</p><h2>Are we on your street?</h2><p>We currently deliver throughout Woodland and selected nearby London postcodes. Enter your postcode to check.</p></div>
+        <form id="postcodeForm"><label for="postcode">Your postcode</label><div><input id="postcode" placeholder="e.g. SE13 6RT" autocomplete="postal-code" required><button class="button primary">Check area</button></div><p id="postcodeResult" role="status"></p></form>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="#top"><span class="brand-mark">W</span> woodland<span>pantry</span></a><p>Independent. Local. Delivered with care.</p><p>© 2026 Woodland Pantry</p></footer>
+
+    <aside class="cart-panel" id="cartPanel" aria-label="Your shopping bag" aria-hidden="true">
+      <div class="cart-head"><h2>Your bag</h2><button class="icon-button" id="closeCart" aria-label="Close bag">×</button></div>
+      <div id="cartItems" class="cart-items"><p class="empty">Your bag is waiting for a few good things.</p></div>
+      <div class="cart-bottom"><div class="total"><span>Subtotal</span><strong id="subtotal">£0.00</strong></div><p class="delivery-charge">Delivery is £2.50. Free over £25.</p><button class="button primary full" id="checkout">Continue to checkout</button></div>
+    </aside><div class="overlay" id="overlay"></div>
+
+    <dialog id="checkoutDialog">
+      <button class="icon-button dialog-close" id="closeCheckout" aria-label="Close checkout">×</button>
+      <div class="checkout-title"><p class="eyebrow">SECURE CHECKOUT</p><h2>Almost there.</h2></div>
+      <form id="checkoutForm">
+        <div class="form-grid"><label>Full name<input required placeholder="Your name"></label><label>Mobile number<input required type="tel" placeholder="07..." inputmode="tel"></label></div>
+        <label>Delivery address<input required placeholder="House number and street"></label>
+        <label>Delivery preference<select><option>Earliest available slot</option><option>Today, 6pm – 8pm</option><option>Tomorrow, 10am – 12pm</option></select></label>
+        <fieldset><legend>How would you like to pay?</legend><div class="payment-options"><label class="payment selected"><input type="radio" name="pay" value="card" checked><span>▣</span><div><strong>Card or digital wallet</strong><small>Visa, Mastercard, Apple Pay & Google Pay</small></div></label><label class="payment"><input type="radio" name="pay" value="cash"><span>£</span><div><strong>Cash on delivery</strong><small>Please have the correct amount ready where possible.</small></div></label></div></fieldset>
+        <div class="checkout-summary"><span>Total due</span><strong id="checkoutTotal">£0.00</strong></div>
+        <button class="button primary full" id="placeOrder">Place order securely</button><p class="secure-note">🔒 Online payments are protected by your payment provider.</p>
+      </form>
+    </dialog>
+    <dialog id="orderDialog" class="order-dialog">
+      <button class="icon-button dialog-close" id="closeOrder" aria-label="Close order confirmation">×</button>
+      <p class="eyebrow">ORDER RECEIVED</p><h2>Thank you!</h2>
+      <p id="orderMessage">Your order has been received.</p>
+      <a class="button whatsapp full" id="whatsappUpdate" href="#" target="_blank" rel="noopener">Send WhatsApp order update</a>
+      <p class="secure-note">This opens WhatsApp with a ready-to-send confirmation for this customer.</p>
+    </dialog>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+    <script src="checkout-updates.js"></script>
+  </body>
+</html>
