@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Oval Convenience Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="index.html" aria-label="Return to store"><img class="brand-logo" src="assets/oval-convenience-store-logo.png" alt="Oval Convenience Store"></a><nav><a href="index.html">View shop</a></nav></header>
+  <main class="admin-page">
+    <div class="admin-intro"><p class="eyebrow">STORE MANAGEMENT</p><h1>Manage your <em>shop.</em></h1><p>Update payment details, publish products and keep your shelves current.</p></div>
+    <div class="admin-layout">
+      <section class="admin-card"><p class="eyebrow">PAYMENTS</p><h2>Bank details</h2><p class="card-copy">These details are shown to customers selecting bank transfer at checkout.</p>
+        <form id="bankForm" class="admin-form"><label>Account name<input id="accountName" required placeholder="Oval Convenience Store"></label><label>Bank name<input id="bankName" required placeholder="Your bank name"></label><div class="two-col"><label>Sort code<input id="sortCode" placeholder="00-00-00"></label><label>Account number<input id="accountNumber" placeholder="12345678"></label></div><label>Payment reference instructions<textarea id="paymentNote" rows="3" placeholder="Use your order number as the payment reference."></textarea></label><button class="button primary" type="submit">Save bank details</button><p class="form-status" id="bankStatus" role="status"></p></form>
+      </section>
+      <section class="admin-card"><p class="eyebrow">PRODUCTS</p><h2>Add or edit items</h2><p class="card-copy">Upload a product photo, set the price and publish it to the shop.</p>
+        <form id="productForm" class="admin-form"><input id="productId" type="hidden"><label>Product name<input id="productName" required placeholder="e.g. Fresh milk"></label><label>Description<input id="productDetail" required placeholder="e.g. Semi-skimmed · 2 litres"></label><div class="two-col"><label>Price (£)<input id="productPrice" required type="number" min="0.01" step="0.01" placeholder="0.00"></label><label>Product photo<input id="productImage" type="file" accept="image/*"></label></div><div class="image-preview" id="imagePreview"><span>No photo selected</span></div><div class="admin-actions"><button class="button primary" type="submit" id="saveProduct">Publish product</button><button class="button secondary" type="button" id="cancelEdit" hidden>Cancel edit</button></div><p class="form-status" id="productStatus" role="status"></p></form>
+      </section>
+    </div>
+    <section class="admin-card product-list-card"><div class="list-heading"><div><p class="eyebrow">LIVE CATALOGUE</p><h2>Published products</h2></div><a class="button secondary" href="index.html#shop">Open storefront</a></div><div class="admin-product-list" id="adminProductList"></div></section>
+  </main><script src="admin.js"></script>
+</body></html>
